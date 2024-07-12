@@ -6,11 +6,18 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
+import { ProfileListComponent } from './pages/profile/profile-list/profile-list.component';
+import { ProfileCreateUpdateComponent } from './pages/profile/profile-create-update/profile-create-update.component';
+import { ProfileService } from './services/profile.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    ProfileListComponent,
+    ProfileCreateUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
