@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 import Swal from 'sweetalert2';
-import { ProfileItems } from 'src/app/interfaces/profile-items';
 
 @Component({
   selector: 'app-profile-create-update',
