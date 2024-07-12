@@ -43,19 +43,6 @@ export class ProfileCreateUpdateComponent {
     });
   }
 
-  registerProfile() {
-    const profile = this.profileForm.value as ProfileItems;
-
-    this.profileService.register(profile).subscribe(result => {
-      Swal.fire({
-        title: 'Cadastrado!',
-        text: 'Perfil cadastrado com sucesso!',
-        icon: 'success',
-      });
-      this.router.navigateByUrl('/profile');
-    });
-  }
-
   updateProfile() {
     const profile = this.profileForm.value as ProfileItems;
     profile.id = this.id;
@@ -64,6 +51,19 @@ export class ProfileCreateUpdateComponent {
       Swal.fire({
         title: 'Atualizado!',
         text: 'Perfil atualizado com sucesso!',
+        icon: 'success',
+      });
+      this.router.navigateByUrl('/profile');
+    });
+  }
+
+  registerProfile() {
+    const profile = this.profileForm.value as ProfileItems;
+
+    this.profileService.register(profile).subscribe(result => {
+      Swal.fire({
+        title: 'Cadastrado!',
+        text: 'Perfil cadastrado com sucesso!',
         icon: 'success',
       });
       this.router.navigateByUrl('/profile');
