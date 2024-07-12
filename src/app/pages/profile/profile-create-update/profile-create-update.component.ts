@@ -19,9 +19,9 @@ export class ProfileCreateUpdateComponent {
     role: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     age: new FormControl(0, [Validators.required, Validators.min(0)]),
     email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(50)]),
-    isActive: new FormControl(false, Validators.required),
-    country: new FormControl('', [Validators.required, Validators.maxLength(30)]),
-    experience: new FormControl('', [Validators.required, Validators.maxLength(30)])
+    isActive: new FormControl(false),
+    country: new FormControl('', Validators.maxLength(30)),
+    experience: new FormControl('', Validators.maxLength(30))
   });
 
   onSubmit() {
