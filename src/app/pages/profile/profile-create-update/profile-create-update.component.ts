@@ -30,8 +30,8 @@ export class ProfileCreateUpdateComponent {
   //   this.profileService.register(profile).subscribe(result => {
   //     console.log(result)
   //     Swal.fire({
-  //       title: 'Pessoa cadastrada com sucesso!',
-  //       text: 'PARABENS CHAMPS!!',
+  //       title: 'Cadastrado!',
+  //       text: 'Pessoa cadastrada com sucesso!',
   //       icon: 'success',
   //     })
   //     this.router.navigateByUrl('/profile')
