@@ -20,13 +20,18 @@ export class ProfileService {
     return this.http.post<ProfileItems>(this.api, profile);
   }
 
-  update(updatedProfile: ProfileItems): Observable<ProfileItems[]> {
+  update(updatedProfile: ProfileItems): Observable<ProfileItems> {
     const url = `${this.api}/${updatedProfile.id}`;
-    return this.http.put<ProfileItems[]>(url, updatedProfile);
+    return this.http.put<ProfileItems>(url, updatedProfile);
   }
 
   deleteProfile(id: string): Observable<void> {
     const url = `${this.api}/${id}`;
     return this.http.delete<void>(url);
+  }
+
+  findById(id: string): Observable<ProfileItems> {
+    const url = `${this.api}/${id}`;
+    return this.http.get<ProfileItems>(url);
   }
 }

@@ -1,5 +1,5 @@
 <div class="container">
-    <form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
+    <form [formGroup]="profileForm">
         <div class="mb-3">
             <label for="name" class="form-label">Nome</label>
             <input type="text" class="form-control" id="name" formControlName="name" name="name">
@@ -25,9 +25,10 @@
             <input type="text" class="form-control" id="experience" formControlName="experience">
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="isActive">
+            <input type="checkbox" class="form-check-input" id="isActive" formControlName="isActive" [(ngModel)]="profileForm.value.isActive">
             <label class="form-check-label" for="isActive">Ativo</label>
-        </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Cadastrar</button>
+        </div>        
+        <button *ngIf="!atualizar" type="submit" class="btn btn-success mr-2" (click)="registerProfile()" [disabled]="!profileForm.valid">Cadastrar</button>
+        <button *ngIf="atualizar" type="submit" class="btn btn-warning mr-2" (click)="updateProfile()">Atualizar</button>
     </form>
 </div>

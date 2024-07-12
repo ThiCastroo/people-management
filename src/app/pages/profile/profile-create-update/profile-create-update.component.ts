@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProfileItems } from 'src/app/interfaces/profile-items';
 import { ProfileService } from 'src/app/services/profile.service';
 import Swal from 'sweetalert2';
@@ -12,8 +12,6 @@ import Swal from 'sweetalert2';
 })
 export class ProfileCreateUpdateComponent {
 
-  constructor(private profileService: ProfileService, private router: Router) { }
-
   profileForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.maxLength(100)]),
     role: new FormControl('', [Validators.required, Validators.maxLength(50)]),
@@ -24,17 +22,52 @@ export class ProfileCreateUpdateComponent {
     experience: new FormControl('', Validators.maxLength(30))
   });
 
-  onSubmit() {
+  atualizar = false;  
+  id: string = ''; 
+
+  constructor(private profileService: ProfileService, private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.atualizar = true;
+        this.id = params['id'];
+        this.loadProfile(this.id);
+      }
+    });
+  }
+
+  loadProfile(id: string) {
+    this.profileService.findById(id).subscribe(result => {
+      this.profileForm.patchValue(result); 
+    });
+  }
+
+  registerProfile() {
     const profile = this.profileForm.value as ProfileItems;
-    console.log(profile)
+
     this.profileService.register(profile).subscribe(result => {
-      console.log(result)
       Swal.fire({
         title: 'Cadastrado!',
-        text: 'Pessoa cadastrada com sucesso!',
+        text: 'Perfil cadastrado com sucesso!',
         icon: 'success',
-      })
-      this.router.navigateByUrl('/profile')
+      });
+      this.router.navigateByUrl('/profile');
+    });
+  }
+
+  updateProfile() {
+    const profile = this.profileForm.value as ProfileItems;
+    profile.id = this.id;
+
+    this.profileService.update(profile).subscribe(result => {
+      Swal.fire({
+        title: 'Atualizado!',
+        text: 'Perfil atualizado com sucesso!',
+        icon: 'success',
+      });
+      this.router.navigateByUrl('/profile');
     });
   }
 }
+
