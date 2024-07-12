@@ -29,6 +29,16 @@
       "country": "UK",
       "experience": "Mid-level",
       "id": "uq2e"
+    },
+    {
+      "name": "Thiago Castro",
+      "role": "admin",
+      "age": 20,
+      "email": "thi.castro@gmail.com",
+      "isActive": true,
+      "country": "Brasil",
+      "experience": "Junior",
+      "id": "2dca"
     }
   ]
 }
