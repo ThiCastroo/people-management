@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ProfileItems } from 'src/app/interfaces/profile-items';
 import { ProfileService } from 'src/app/services/profile.service';
 import Swal from 'sweetalert2';
 
@@ -23,17 +24,17 @@ export class ProfileCreateUpdateComponent {
     experience: new FormControl('', [Validators.required, Validators.maxLength(30)])
   });
 
-  // onSubmit() {
-  //   const profile = this.profileForm.value;
-  //   console.log(profile)
-  //   this.profileService.register(profile).subscribe(result => {
-  //     console.log(result)
-  //     Swal.fire({
-  //       title: 'Cadastrado!',
-  //       text: 'Pessoa cadastrada com sucesso!',
-  //       icon: 'success',
-  //     })
-  //     this.router.navigateByUrl('/profile')
-  //   });
-  // }
+  onSubmit() {
+    const profile = this.profileForm.value as ProfileItems;
+    console.log(profile)
+    this.profileService.register(profile).subscribe(result => {
+      console.log(result)
+      Swal.fire({
+        title: 'Cadastrado!',
+        text: 'Pessoa cadastrada com sucesso!',
+        icon: 'success',
+      })
+      this.router.navigateByUrl('/profile')
+    });
+  }
 }
