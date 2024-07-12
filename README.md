@@ -1,27 +1,43 @@
-# PeopleManagement
+# 👥 Aplicação de Gerenciamento de Pessoas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+Esta é uma aplicação simples de Gerenciamento de Pessoas construída com Angular 16. Ela permite que os usuários listem, criem, editem e excluam perfis.
 
-## Development server
+## 🚀 Tecnologias Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 16
+- Bootstrap
+- SweetAlert2
+- Popper.js
 
-## Code scaffolding
+## 🛠️ Configuração do Projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Clone o repositório**
+    ```bash
+    git clone https://github.com/ThiCastroo/people-management.git
+    cd people-management
+    ```
 
-## Build
+2. **Instale as dependências**
+    ```bash
+    npm install
+    ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. **Execute a aplicação**
+    - No diretório do projeto, execute a aplicação Angular
+        ```bash
+        ng serve
+        ```
+    - Em outro terminal, execute o servidor da API simulada
+        ```bash
+        npm run server
+        ```
 
-## Running unit tests
+## 💡 Como Usar
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Abra seu navegador e navegue até `http://localhost:4200`.
+2. Vá até a barra de navegação e clique em "Profiles".
+3. Agora você pode criar, editar ou excluir um perfil.
 
-## Running end-to-end tests
+## 📬 Contato
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Se você tiver alguma dúvida ou precisar de mais assistência, sinta-se à vontade para entrar em contato comigo em: thiagogyorgy.castro@gmail.com
